@@ -24,27 +24,28 @@ const personalMovieDB = {
     privat: false
 };
 
-
+//задаём цикл, чтобы вопросы повторились по 2 раза
 for (let i = 0; i < 2; i++) {
     const a = prompt('Один из последних просмотренных фильмов?', ''),
           b = prompt('На сколько оцените его?', '');
 
     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-        personalMovieDB.movies[a] = b;
+        personalMovieDB.movies[a] = b;  //если все условия выполнены верно
         console.log('done');
-    } else {
+    } else {                            //если условие не выполнено
         console.log('error');
-        i--;
+        i--;                            //снова вернуться к вопросам, т.е. вернуть цикл назад
     }
 }
 
+//задание №3
 if (personalMovieDB.count < 10) {
     console.log("Просмотрено довольно мало фильмов");
 } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
     console.log("Вы классический зритель");
 } else if (personalMovieDB.count >= 30) {
     console.log("Вы киноман");
-} else {
+} else {                           //если ни одно условие не выполнилось
     console.log("Произошла ошибка");
 }
 

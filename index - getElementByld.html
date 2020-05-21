@@ -1,0 +1,160 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+	<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+	<head>
+		<!-- Заголовок страницы в браузере -->
+		<title></title>
+		<!-- Адаптив -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<!-- Подключаем CSS -->
+		<link rel="stylesheet" href="css/style.css" />
+		<!-- Кодировка страницы -->
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<!-- Ищем элементы в html -->
+		<input value="Nata" title="Enter your name" class="first name input" id="first name" />
+		<input value="Myau" class="last name input" id="last name" />
+		<input value="Krd" class="address input" id="address" />
+
+		<select id="cities">
+			<option>Kiev</option>
+			<option selected="selected">Minsk</option>
+			<option>Moscow</option>
+		</select>
+
+		<textarea id="hobbies" >JS, CSS, HTML</textarea>
+
+		<div id="avatar-wrapper">
+			<img id="avatar" src="../../Практика/Business/img/icons/logo.png" alt="">
+		</div>
+
+		<script>
+			/*function alertValues() {
+				console.log(firstNameEl.value);
+				console.log(lastNameEl.value);
+				console.log(addressEl.value);
+			}
+
+			alertValues();*/
+
+			function alertValues(elementParameters) {  //параметры ф-ий
+				console.log(elementParameters.value);
+				console.log(elementParameters.className);
+			}
+
+			function getEl(id) {
+				let el = document.getElementById(id);
+			}
+
+			// определяем переменные и присваиваем переменной строку - айдишку, которую нужно найти в html
+			let firstNameId = "first name";
+			// находим элемент по id и результат (найденный элемент) присваиваем переменной
+			// let firstNameEl = document.getElementById(firstNameId); //чтобы не было длинной записи, создаем ф-ю
+			let firstNameEl = getEl(firstNameId);
+			// alertFirstNameValues();
+			alertValues(firstNameEl);
+
+			let lastNameId = "last name";
+			let lastNameEl = getEl(lastNameId);
+			// alertLastNameValues();
+			alertValues(lastNameEl);
+
+			let addressId  = "address";
+			let addressEl = getEl(addressId);
+			let citiesId  = "cities";
+			let citiesEl = getEl(citiesId);
+			let hobbiesId  = "hobbies";
+			let hobbiesEl = getEl(hobbiesId);
+			let avatarWrapperId = "avatar-wrapper";
+			let avatarWrapperEl = getEl(avatarWrapperId);
+			let avatarId = 'avatar';
+			let avatarEl = getEl(avatarId);
+
+			/* window.alert(firstNameEl.value);
+			window.alert(firstNameEl.id);
+			window.alert(firstNameEl.className);
+			window.alert(lastNameEl.value);
+			window.alert(addressEl.value);
+			window.alert(citiesEl.value);
+			window.alert(hobbiesEl.value); */
+
+			//если тому что слева, присваивается то, что справа от оператора присваивания,
+			//то это значит, что First Name.value приобретание новое значение Андрей
+			firstNameEl.value = 'Andrey';
+
+			// создали новый стиль
+			lastNameEl.className = 'error-input';
+
+			// добавляем заголовок при наведении
+			lastNameEl.title = 'Wrong last name';
+			citiesEl.value = 'Moscow';
+			hobbiesEl.value = 'I have not interesting';
+			// поменяли картинку // также можем менять и другие свойства
+			avatarEl.src = "../../Практика/Business/img/clients/1 (1).png";
+			// вместо картинки поставили список
+			avatarWrapperEl.innerHTML = "<ul id=\'list'\><li>1</li><li>2</li></ul>";
+
+			let listId = "list";
+			let numberList = document.getElementById(listId);
+
+			window.alert(numberList.innerHTML);
+
+
+			//ВОЗВРАЩАЕМОЕ ЗНАЧЕНИЕ Ф-ИЙ
+			/*function firstNameLog() {
+				let firstNameId = "first name";
+				let firstNameEl = document.getElementById(firstNameId);
+				console.log(firstNameEl.value);
+			}
+
+			function lastNameLog() {
+				let lastNameId = "last name";
+				let lastNameEl = document.getElementById(lastNameId);
+				console.log(lastNameEl.value);
+			}
+
+			firstNameLog();
+			lastNameLog();*/
+
+			//Для функций выше, создаём универсальную ф-ю
+			//если хотим залогировать
+			function logValue(id) {
+				let el = document.getElementById(id);
+				console.log(el.value);
+			}
+
+			//если хотим вызвать,т.е. вернуть значение, то пишем return
+			function getValue(id) {
+				let el = document.getElementById(id);
+				return el.value;
+			}
+
+			let firstNameId = "first name";
+			let lastNameId = "last name";
+
+			logValue(firstNameId);
+			logValue(lastNameEl);
+
+			getValue(firstNameId);
+			getValue(lastNameEl);
+
+			let value = getValue(firstNameId);
+			window.alert(value);
+
+		</script>
+
+		<style>
+			.input{
+				border: 3px solid green;
+				padding: 5px;
+			}
+			.error-input{
+				border: 3px solid red;
+				padding: 5px;
+			}
+		</style>
+	</body>
+</html>
