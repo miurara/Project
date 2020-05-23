@@ -50,4 +50,4 @@ if (switcher) {
 console.log(typeof(Boolean('4')));
 
 //3. С помощью !! - 2 знака отрицания
-console.log(typeof(!!"4444");
+console.log(typeof(!!"4444"));

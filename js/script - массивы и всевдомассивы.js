@@ -27,7 +27,7 @@ for (let value of arr) {    //в () пишем название переменн
     console.log(value);
 }
 
-//* Конструкция перебора for Each. Метож принимает в себя ф-ю callback
+//* Конструкция перебора for Each. Метод принимает в себя ф-ю callback
 arr.forEach(function (item, i, arr) {
     console.log(`${i}: ${item} внутри массива ${arr}`);
 })
